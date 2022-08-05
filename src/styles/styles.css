@@ -9,6 +9,32 @@
   padding-top: 5px;
 }
 
+.card-img-top{
+  height:11rem;
+}
+
+/****************MEDIA QUERY***************
+/* if banner is in mobile heigh change */
+@media (max-width: 768px) {
+  #banner {
+    height: 24vh;
+  }
+  
+.hello-guest{
+  font-size: 1.5rem;
+}
+
+  .card-img-top{
+    height: 7.5rem;
+  }
+
+  .rt-card{
+    padding-left: 1%;
+    padding-right: 1%;
+  }
+  
+}
+
 .container {
   padding-top: 12%;
   float: right;
@@ -20,6 +46,12 @@
 padding-top: 6%;
 float: right;
 width: 70%;
+}
+
+.container-login{
+  padding-top: 6%;
+  float: right;
+  width: 70%;
 }
 
 .btn-lgn{
@@ -37,39 +69,6 @@ border: 1px solid #ddd;
 margin-bottom: 0;
 }
 
-.writing-container{
-padding-left: 5px;
-}
-
-.writing-main{
-padding-left: 2%;
-padding-top: 3%;
-padding-right: 10%;
-}
-
-.blog-main-solo{
-padding-left: 2%;
-padding-top: 3%;
-padding-right: 10%;
-}
-
-.blog-all-solo{
-padding-left: 5%;
-padding-top: 3%;
-padding-right: 10%;
-}
-
-.comment-section{
-padding-left: 2%;
-padding-top: 1%;
-padding-right: 60%;
-}
-
-.comment-section-written{
-padding-left: 2%;
-padding-top: 1%;
-padding-right: 35%;
-}
 
 .category-comps{
 padding-left: 2%;
@@ -90,4 +89,31 @@ transition: 0.2s;
 /* add shadow */
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.2);
 }
+
+.rt-card{
+  margin-top: 2%;
+}
+
+.rt-card-body{
+/* align to center */
+text-align: center;
+}
+
+.number-data{
+  font-size: 2.5rem;
+}
+
+.card-category-rd{
+  border-radius: 5%;
+}
+
+/* if not mobile */
+@media (min-width: 768px) {
+ .rt-card{
+  padding-left: 14%;
+  padding-right: 14%;
+ }
+}
+
+
 

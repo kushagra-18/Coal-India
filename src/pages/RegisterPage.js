@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 import { useRef } from "react";
 // import { URL } from "../store.js/const";
 import swal from "sweetalert";
-
 function RegisterPage() {
-    document.title = "Blogwayy | Register";
+    document.title = "Coal India | Register";
 
     const name = useRef();
     const email = useRef();
     const password = useRef();
     const confirmPassword = useRef();
+    
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -64,6 +64,7 @@ function RegisterPage() {
     }
 
     const handlePassword = (e) => {
+
         if (password.current.value.length < 6) {
             document.getElementById("note-pswrd").innerHTML = "Password must be at least 6 characters";
             document.getElementById("submit").disabled = true;
@@ -73,12 +74,11 @@ function RegisterPage() {
         }
     }
 
-
     return (
         <div className="register-page">
             <title>Register</title>
             <div className="jumbotron">
-                <h1 className="display-5">Hello, Guest!</h1>
+                <h1 className="display-5 hello-guest">Hello, Guest!</h1>
                 <h3>
                     Sign up now!!
                 </h3>
@@ -149,6 +149,8 @@ function RegisterPage() {
                                             />
                                         </div>
                                     </div>
+
+                                    
 
                                     <div className="col-md-6">
                                             <p id="note-pswrd" className="text-danger"></p>

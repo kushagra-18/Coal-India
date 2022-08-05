@@ -3,7 +3,7 @@ import '../styles/styles.css'
 
 function BannerMain(){
 
-    document.title = "Coal India| Number Plate Recognition";
+    // document.title = "Coal India| Number Plate Recognition";
 
     return (
         <div className="banner-main">
