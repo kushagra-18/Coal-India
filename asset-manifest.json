@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/Coal-India/static/css/main.885a0954.css",
-    "main.js": "/Coal-India/static/js/main.26c42f12.js",
+    "main.css": "/Coal-India/static/css/main.c664a29c.css",
+    "main.js": "/Coal-India/static/js/main.9f0cb3af.js",
     "static/js/787.d07873dd.chunk.js": "/Coal-India/static/js/787.d07873dd.chunk.js",
-    "static/media/banner.gif": "/Coal-India/static/media/banner.54b9938829ad7faed7f5.gif",
+    "static/media/banner.png": "/Coal-India/static/media/banner.5d6b26a5fc2f64f094f5.png",
     "static/media/number.jpeg": "/Coal-India/static/media/number.1d92176f982e4131f56a.jpeg",
     "static/media/notification.svg?s3g3t9": "/Coal-India/static/media/notification.5d0158671dd860c714c4.svg",
     "static/media/notification.eot": "/Coal-India/static/media/notification.3657084dc0419605a91c.eot",
     "static/media/notification.woff?s3g3t9": "/Coal-India/static/media/notification.c392cd33d9d9de730f9d.woff",
     "static/media/notification.ttf?s3g3t9": "/Coal-India/static/media/notification.c5d9251ea82e42f75381.ttf",
     "index.html": "/Coal-India/index.html",
-    "main.885a0954.css.map": "/Coal-India/static/css/main.885a0954.css.map",
-    "main.26c42f12.js.map": "/Coal-India/static/js/main.26c42f12.js.map",
+    "main.c664a29c.css.map": "/Coal-India/static/css/main.c664a29c.css.map",
+    "main.9f0cb3af.js.map": "/Coal-India/static/js/main.9f0cb3af.js.map",
     "787.d07873dd.chunk.js.map": "/Coal-India/static/js/787.d07873dd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.885a0954.css",
-    "static/js/main.26c42f12.js"
+    "static/css/main.c664a29c.css",
+    "static/js/main.9f0cb3af.js"
   ]
 }
