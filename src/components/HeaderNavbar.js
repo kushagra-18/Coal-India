@@ -2,9 +2,12 @@ import { Link, NavLink } from "react-router-dom";
 
 function HeaderNavbar() {
     return (
-        <nav className="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+
+        // if props = home then show home navbar else show rest navbar
+        <nav className="navbar sticky-top navbar-expand-lg navbar-dark navbar-bg-color">
             <a className="navbar-brand" href="#">
-                Coal India
+
+                <img src="https://www.coalindia.in/static/images/logo.png" alt="logo" style={{ width: "140px" }} />
             </a>
             <button
                 className="navbar-toggler"
@@ -23,12 +26,14 @@ function HeaderNavbar() {
            
             <div className='ml-5'>
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0 mr-2">
-
-                    <li className="nav-item">
-                        <div className="nav-link"><Link style={{ textDecoration: 'none', color: 'white' }} to='/register'>Register</Link></div>
+                <li className="nav-item">
+                        <div className="nav-link"><Link style={{ textDecoration: 'none', color: 'white', fontSize: '20px',fontWeight:'bold' }} to='/data-all'>Vehicle Data</Link></div>
                     </li>
                     <li className="nav-item">
-                        <div className="nav-link"><Link style={{ textDecoration: 'none', color: 'white' }} to='/login'>Login</Link></div>
+                        <div className="nav-link"><Link style={{ textDecoration: 'none', color: 'white', fontSize: '20px',fontWeight:'bold' }} to='/register'>Register</Link></div>
+                    </li>
+                    <li className="nav-item">
+                        <div className="nav-link"><Link style={{ textDecoration: 'none', color: 'white', fontSize: '20px',fontWeight:'bold' }} to='/login'>Login</Link></div>
                     </li>
                 </ul>
             </div>

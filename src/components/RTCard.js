@@ -1,5 +1,4 @@
-import 'react-notifications/lib/notifications.css';
-import {NotificationContainer, NotificationManager} from 'react-notifications';
+import { Link } from "react-router-dom";
 
 function RTCard(props) {
 
@@ -35,6 +34,7 @@ function RTCard(props) {
       <div className="card-deck">
       {cardData.map((data) => (
       <div className= {data.cardClass}>
+         <Link style={{ textDecoration: 'none', color: 'white' }}  to='/data-all'>
         <div className="card-body rt-card-body">
         <font size = '5'><i className = {data.icn}></i></font>
          <div className="number-data">{data.number}</div>
@@ -42,6 +42,7 @@ function RTCard(props) {
             {data.title}
           </p>
         </div>
+        </Link>
       </div>
       
   ))}

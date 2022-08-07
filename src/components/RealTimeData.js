@@ -3,6 +3,7 @@ import 'react-notifications/lib/notifications.css';
 import io from "socket.io-client";
 import RTCard from "./RTCard";
 import { useState ,useEffect} from "react";
+import {API_URL} from '../const';
 
 const RealTimeData = () => {
 
@@ -13,16 +14,12 @@ const RealTimeData = () => {
   }
   const [data, setData] = useState(temp);
 
-  // const URL = 'https://coal-india.herokuapp.com/';
 
-  const URL = 'http://localhost:5000/';
-
-
-  const socket = io.connect(URL, {
+  const socket = io.connect(API_URL, {
     secure: true,
     reconnection: true,
     rejectUnauthorized: false,
-    transports: ["websocket"],
+    transports: ["websocket"],  
   });
 
 
@@ -52,14 +49,14 @@ const RealTimeData = () => {
           NotificationManager.success(
             data.msg,
             '',
-            2200,
+            2500,
 
           );
       }else{
         NotificationManager.error(
           data.msg,
           '',
-          2200,
+          2500,
 
         );
       }
@@ -71,7 +68,7 @@ const RealTimeData = () => {
 
 
   return (
-  <div>
+  <div className='socket-data'>
     <RTCard data={data}/>
     <NotificationContainer/>
   </div>

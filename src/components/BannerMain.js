@@ -1,15 +1,17 @@
-import bannerImage from '../images/banner.gif';
-import '../styles/styles.css'
+import bannerImage from "../images/banner.png";
+import "../styles/styles.css";
 
-function BannerMain(){
+function BannerMain() {
+  document.title = "Coal India | Home";
 
-    // document.title = "Coal India| Number Plate Recognition";
-
-    return (
-        <div className="banner-main">
-    <img src= {bannerImage} id="banner"/>
+  return (
+    <div className="banner-main-parent">
+    <div className="banner-main">
+      <img src={bannerImage} id="banner" />
     </div>
-    );
+    </div>
+
+  );
 }
 
 export default BannerMain;

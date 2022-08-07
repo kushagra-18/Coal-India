@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import numPlate from '../images/number.jpeg';
+import parking from '../images/parking.jpeg';
 
 function Category() {
  
@@ -14,7 +15,7 @@ function Category() {
         id: 2,
         title: "Car Parking Detection",
         cardClass : "card text-white card-category bg-success mb-3",
-        imgUrl:'https://www.clairvoyant.ai/hubfs/Download%20Images%20For%20Training%202.jpeg',
+        imgUrl:parking,
       },
     ];
 
