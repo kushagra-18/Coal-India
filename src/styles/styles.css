@@ -63,8 +63,9 @@
 
 .jumbotron {
   float: left;
-  background: #ffc1cc;
+  background: #060C22FA;
   width: 25%;
+  color: aliceblue;
   margin-top: 8%;
   border-radius: 0;
   border: 1px solid #ddd;
@@ -75,6 +76,7 @@
   padding-left: 4%;
   padding-right: 4%;
   padding-bottom: 1%;
+
 }
 
 .card:hover {
@@ -188,4 +190,19 @@
   text-align: center ;
   font-size: 1.4rem;
   font-weight: bold;
+}
+.footer-main{
+  background-color: #060C22FA;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.hr-jumbo{
+  border-color: white;
+}
+
+/* align a div to center */
+
+.spinner-loading{
+  align-items: center;
 }

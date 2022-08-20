@@ -1,8 +1,9 @@
 import "../styles/styles.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useRef, useState, useContext } from "react";
-// import AuthContext from "../store.js/auth-context";
-// import { URL } from "../store.js/const";
+import AuthContext from "../storage/auth-context";
+import {API_URL} from '../const';
+import { Bars } from  'react-loader-spinner'
 
 function Login() {
   document.title = "Coal India | Login";
@@ -10,22 +11,26 @@ function Login() {
   const email = useRef();
   const password = useRef();
 
+  const [loadingButton, setLoadingButton] = useState(false);
+  const [loginStatus, setLoginStatus] = useState(false);
 
-//   const [loginStatus, setLoginStatus] = useState(false);
+  const [error, setError] = useState(null);
 
-//   const authCtx = useContext(AuthContext);
+  const authCtx = useContext(AuthContext);
 
   const navigate = useNavigate();
 
   function handleSubmit(e) {
     e.preventDefault();
 
+    setLoadingButton(true);
+
     const user = {
       email: email.current.value,
       password: password.current.value,
     };
 
-    const url = URL + "/users/login";
+    const url = API_URL + "/users/login";
 
     fetch(url, {
       method: "POST",
@@ -39,15 +44,15 @@ function Login() {
         return a.json();
       })
       .then(function (json) {
+        setLoadingButton(false);
         if (json.status === 200) {
-        //   authCtx.loginHandler(json.token, json.user.role);
           localStorage.setItem("token", json.token);
-          localStorage.setItem("user", json.user.role);
-        //   setLoginStatus(true);
+          authCtx.loginHandler(json.token);
+          setLoginStatus(true);
           navigate("/");
         }
         else
-          alert("Invalid email or password");
+          setError(json.message);
       });
   }
 
@@ -58,7 +63,7 @@ function Login() {
       <div className="jumbotron">
         <h1 className="display-5 hello-guest">Hello, Guest!</h1>
         <h3> Login Now</h3>
-        <hr className="my-4" />
+        <hr className="my-4 hr-jumbo" />
       </div>
 
       <div className="container-login">
@@ -112,16 +117,33 @@ function Login() {
                   <div className="form-group">
                     <div className="col-md-8 col-md-offset-4">
                       <br />
+                      {!loadingButton ? (
                       <button type="submit" className="btn btn-primary">
                         Login
                       </button>
+                      ) : (
+                        <Bars
+                        height="60"
+                        width="60"
+                        color="#00BFFF"
+                        ariaLabel="bars-loading"
+                        wrapperStyle={{}}
+                        visible={true}
+                      />
+                      )}
                       <br />
                       <br /> 
+                      {error ? (
+                          <div className="alert alert-danger sm" role="alert">
+                            {error}
+                          </div>
+                        ) : null}
                       <Link
                         style={{ textDecoration: "none", color: "blue" }}
                         to="/register"
                       >
-                        New to Coal India
+                  
+                        New to Coal India?
                       </Link>
                     </div>
                   </div>

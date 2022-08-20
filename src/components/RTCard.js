@@ -9,14 +9,14 @@ function RTCard(props) {
         title: "Total Vehicle In Field",
         cardClass : "card text-white card-category card-category-rd bg-secondary",
         icn:'fa fa-truck-arrow-right',
-        number: (props) ? props.data.ti : 0,
+        number: (props.data.ti) ? props.data.ti : 0,
       },
       {
         id: 2,
         title: "Total Vehicle Count",
         cardClass : "card text-white card-category card-category-rd bg-info",
         icn:'fa fa-truck',
-        number: (props) ? props.data.tv : 0,
+        number: (props.data.tv) ? props.data.tv : 0,
       },
 
       {
@@ -24,7 +24,7 @@ function RTCard(props) {
         title: "Total Vehicle out of Field",
         cardClass : "card text-white card-category card-category-rd bg-success",
         icn:'fa fa-truck-fast',
-        number: (props) ? props.data.to : 0,
+        number: (props.data.to) ? props.data.to : 0,
       },
     ];
 

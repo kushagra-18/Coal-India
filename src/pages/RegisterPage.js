@@ -1,8 +1,10 @@
 import "../styles/styles.css";
 import { Link } from "react-router-dom";
 import { useRef } from "react";
+import { API_URL } from "../const";
+import {Bars} from 'react-loader-spinner'
+import { useState } from "react";
 
-// import { URL } from "../store.js/const";
 import swal from "sweetalert";
 function RegisterPage() {
     document.title = "Coal India | Register";
@@ -11,10 +13,12 @@ function RegisterPage() {
     const email = useRef();
     const password = useRef();
     const confirmPassword = useRef();
-    
+
+    const [loadingButton, setLoadingButton] = useState(false);
 
     function handleSubmit(e) {
         e.preventDefault();
+        setLoadingButton(true);
 
         const user = {
             name: name.current.value,
@@ -23,7 +27,7 @@ function RegisterPage() {
             confirmPassword: confirmPassword.current.value,
         };
 
-        const url = URL + "/users";
+        const url = API_URL + "/users";
 
         fetch(url, {
             method: "POST",
@@ -33,24 +37,32 @@ function RegisterPage() {
             },
         })
             .then((result) => {
+                setLoadingButton(false);
                 if (result.status === 200) {
                     swal({
                         title: "The account has been created!",
-                        text: "You can login now with the credentials provided",
+                        text: "Please verify your email address and login.",
                         icon: "success",
                         button: "Done!",
-                    })
-                } else {
+                    });
+                } else if (result.status === 409) {
                     swal({
                         title: "Unable to create account",
                         text: "Email already exists",
                         icon: "error",
                         button: "Done!",
-                    })
+                    });
+                } else {
+                    swal({
+                        title: "Unable to create account",
+                        text: "Something went wrong",
+                        icon: "error",
+                        button: "Done!",
+                    });
                 }
             })
             .catch((error) => {
-                console.log(error);
+                setLoadingButton(false);
             });
     }
 
@@ -65,25 +77,23 @@ function RegisterPage() {
     }
 
     const handlePassword = (e) => {
-
         if (password.current.value.length < 6) {
-            document.getElementById("note-pswrd").innerHTML = "Password must be at least 6 characters";
+            document.getElementById("note-pswrd").innerHTML =
+                "Password must be at least 6 characters";
             document.getElementById("submit").disabled = true;
         } else {
             document.getElementById("note-pswrd").innerHTML = "";
             document.getElementById("submit").disabled = false;
         }
-    }
+    };
 
     return (
         <div className="register-page">
             <title>Register</title>
             <div className="jumbotron">
                 <h1 className="display-5 hello-guest">Hello, Guest!</h1>
-                <h3>
-                    Sign up now!!
-                </h3>
-                <hr className="my-4" />
+                <h3>Sign up now!!</h3>
+                <hr className="my-4 hr-jumbo" />
                 <h4>It is super easy</h4>
             </div>
             <div className="container-register">
@@ -151,11 +161,9 @@ function RegisterPage() {
                                         </div>
                                     </div>
 
-                                    
-
                                     <div className="col-md-6">
-                                            <p id="note-pswrd" className="text-danger"></p>
-                                        </div>
+                                        <p id="note-pswrd" className="text-danger"></p>
+                                    </div>
 
                                     <div className="form-group">
                                         <label
@@ -181,16 +189,30 @@ function RegisterPage() {
                                             <p id="note" className="text-danger"></p>
                                         </div>
 
-
-                    {/* add security question with select field */}
-
+                                        {/* add security question with select field */}
                                     </div>
                                     <br />
                                     <div className="form-group">
                                         <div className="col-md-6 col-md-offset-4">
-                                            <button type="submit" id = 'submit' className="btn btn-primary" disabled>
-                                                Register
-                                            </button>
+                                            {!loadingButton ? (
+                                                <button
+                                                    type="submit"
+                                                    id="submit"
+                                                    className="btn btn-primary"
+                                                    disabled
+                                                >
+                                                    Register
+                                                </button>
+                                            ) : (
+                                                <Bars
+                                                height="60"
+                                                width="60"
+                                                color="#00BFFF"
+                                                ariaLabel="bars-loading"
+                                                wrapperStyle={{}}
+                                                visible={true}
+                                              />
+                                            )}
                                             <br />
                                             <br />
                                             <Link
@@ -198,7 +220,6 @@ function RegisterPage() {
                                                 to="/login"
                                             >
                                                 Already have an account??
-
                                             </Link>
                                         </div>
                                     </div>
@@ -206,12 +227,10 @@ function RegisterPage() {
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
     );
-
 }
 
 export default RegisterPage;
