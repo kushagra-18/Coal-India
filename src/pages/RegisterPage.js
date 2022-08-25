@@ -60,6 +60,7 @@ function RegisterPage() {
                         button: "Done!",
                     });
                 }
+                confirmPassword.current.value = "";
             })
             .catch((error) => {
                 setLoadingButton(false);

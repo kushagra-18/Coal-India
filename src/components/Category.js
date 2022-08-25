@@ -13,7 +13,7 @@ function Category() {
       },
       {
         id: 2,
-        title: "Car Parking Detection",
+        title: "Moving Vehicle Detection",
         cardClass : "card text-white card-category bg-success mb-3",
         imgUrl:parking,
       },
